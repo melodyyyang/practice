@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	{{ variable_name }}
+	{{variable_name[0]}}
+
+	{% for item in variable_name %}
+		<h1>{{ item | capitalize }}</h1>
+	{% endfor %}
+
+
+	{% if y > 10 %}
+		This is a large number!
+	{% elif y > 5 %}
+		This is a semi large number!
+	{% else %}
+		This is a small number!
+	{% endif %}
+{% endblock %}
