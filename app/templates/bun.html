@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block css %}
+  <style type="text/css">
+  .img-not-selected {
+      opacity: 0.5;
+    }
+
+    .next-btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+  </style>
+{% endblock %}
+{% block content %}
+    <div class="page-header">
+        <h1>Select a Bun</h1>
+    </div>
+    
+    Select either a Sesame Bun or a Muffin Bun
+    
+    <table>
+    <tr>
+        <td>
+            <a href="/Burger?bun=Sesame">
+                <img {% if bun_type == 'Muffin' %}class="img-not-selected"{% endif %} src="/static/img/sesame_bun.jpg" />
+            </a>
+        </td>
+        <td>
+            <a href="/Burger?bun=Muffin">
+                <img {% if bun_type == 'Sesame' %}class="img-not-selected"{% endif %} src="/static/img/muffin_bun.png" />
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td><a href="/Burger?bun=Sesame">Sesame Bun</a></td>
+        <td><a href="/Burger?bun=Muffin">Muffin Wrap</a></td>
+    </tr>
+    </table>
+    <br>
+    {% if bun_type != '' %}
+    How many {{bun_type}} buns would you like?
+    <br>
+    <a href="/Burger?bun={{bun_type}}&count={{count}}&count_action=1"><button class="next-btn">+</button></a><br>
+    <input value='{{count}}'><br>
+    <a href="/Burger?bun={{bun_type}}&count={{count}}&count_action=2"><button class="next-btn">-</button></a>
+    {% endif %}
+
+<br>
+
+    <br>
+    <a href="patty?bun={{bun_type}}&count={{count}}"><button class="next-btn">Next</button></a>
+    
+    
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

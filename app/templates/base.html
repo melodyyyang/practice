@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link rel="stylesheet" typy="text/css" href="resources/style.css">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block css %}{% endblock %}
+    <title>{{title}}</title>
+
+    <style type="text/css">
+    html {
+  font-family: sans-serif;
+
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% block javascript %}{% endblock %}
+  </body>
+</html>
